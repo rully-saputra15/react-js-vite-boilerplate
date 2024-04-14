@@ -3,13 +3,6 @@ import HomePage from '../pages/app';
 
 const modules = import.meta.glob('/src/pages/**/[a-z[]*.jsx', { eager: true });
 
-// const routes = createBrowserRouter([
-//   {
-//     path: '/',
-//     element: <HomePage />,
-//   },
-// ]);
-
 const pages = Object.keys(modules)
   .map((mod) => {
     if (!mod.includes('app')) {
