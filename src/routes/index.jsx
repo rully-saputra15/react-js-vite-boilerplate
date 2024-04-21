@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { createBrowserRouter } from 'react-router-dom';
 import HomePage from '../pages/app';
 import NotFoundPage from '../pages/404';
@@ -14,10 +16,11 @@ const pages = Object.keys(modules)
 
       const Element = modules[mod].default;
       return {
-        path: path,
+        path,
         element: <Element />,
       };
     }
+    return false;
   })
   .filter((page) => !!page);
 
