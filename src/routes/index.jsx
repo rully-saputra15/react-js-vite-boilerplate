@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import HomePage from '../pages/app';
+import NotFoundPage from '../pages/404';
 
 const modules = import.meta.glob('/src/pages/**/[a-z[]*.jsx', { eager: true });
 
@@ -13,7 +14,7 @@ const pages = Object.keys(modules)
 
       const Element = modules[mod].default;
       return {
-        path: path.slice(1, path.length + 1),
+        path: path,
         element: <Element />,
       };
     }
@@ -25,6 +26,10 @@ const routes = createBrowserRouter([
     path: '/',
     element: <HomePage />,
     children: [...pages],
+  },
+  {
+    path: '*',
+    element: <NotFoundPage />,
   },
 ]);
 
